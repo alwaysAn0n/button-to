@@ -3,7 +3,7 @@
 if [ "$NODE_ENV" ]; then
   echo "Starting paymoney.to in environment $NODE_ENV"
   echo "Binding to port $PORT"
-  NODE_ENV=$NODE_ENV node app.js --port=$PORT --silly && ./build
+  NODE_ENV=$NODE_ENV node app.js --port=$PORT && ./build
 else
   echo "No environment found.  Starting paymoney.to in environment development"
   NODE_ENV=development node app.js --port=$PORT
