@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ "$NODE_ENV" ]; then
+
+  if [ "$NODE_ENV" == "production" ]; then
+    echo "Starting paymoney.to worker node in environment 'production'"
+    NODE_ENV=worker node app.js
+    exit
+  fi
+
+  if [ "$NODE_ENV" == "staging" ]; then
+    echo "Starting paymoney.to worker node in environment 'staging'"
+    NODE_ENV=worker node app.js
+    exit
+  fi
+
+else
+  echo "No environment found.  Starting paymoney.to worker node in environment development"
+  NODE_ENV=worker node app.js
+fi
