@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NEW_APP_NAME</title>
+    <title>paymoney.to</title>
 
     <% /* Viewport tag for sensible mobile support */ %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -17,13 +17,16 @@
 
     <% /* Auto-injected «link» tags: */ %>
     <!--STYLES-->
+    <link rel="stylesheet" href="/dependencies/bootstrap-4/bootstrap-4.css">
+    <link rel="stylesheet" href="/dependencies/font-awesome-4/css/font-awesome.css">
+    <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
   </head>
 
   <body>
     <div id="page-wrap">
       <header id="page-header" class="navbar navbar-expand-sm navbar-dark bg-dark flex-column flex-md-row justify-content-between">
-        <a class="navbar-brand mr-0" href="/">NEW_APP_NAME</a>
+        <a class="navbar-brand mr-0" href="/">paymoney.to</a>
         <div class="navbar-nav flex-row">
           <!-- LOGGED-IN NAVIGATION -->
           <% if(me) { %>
@@ -79,7 +82,7 @@
           <small class="nav-item"><a class="nav-link text-info" href="/logout">Sign out</a></small>
           <% } %>
         </div>
-        <small class="copy">Copyright &copy; 2018 NEW_APP_COMPANY. <br class="xs-only"/>All rights reserved.</small>
+        <small class="copy">Copyright &copy; youDidntCallItBcash Inc. <br class="xs-only"/>All rights reserved.</small>
       </footer>
     </div>
 
@@ -102,6 +105,34 @@
 
     <% /* Auto-injected «script» tags: */ %>
     <!--SCRIPTS-->
+    <script src="/dependencies/sails.io.js"></script>
+    <script src="/dependencies/lodash.js"></script>
+    <script src="/dependencies/jquery.min.js"></script>
+    <script src="/dependencies/bowser.js"></script>
+    <script src="/dependencies/vue.js"></script>
+    <script src="/dependencies/bootstrap-4/bootstrap-4.bundle.js"></script>
+    <script src="/dependencies/cloud.js"></script>
+    <script src="/dependencies/parasails.js"></script>
+    <script src="/js/cloud.setup.js"></script>
+    <script src="/js/components/ajax-button.component.js"></script>
+    <script src="/js/components/ajax-form.component.js"></script>
+    <script src="/js/components/modal.component.js"></script>
+    <script src="/js/utilities/open-stripe-checkout.js"></script>
+    <script src="/js/pages/498.page.js"></script>
+    <script src="/js/pages/account/account-overview.page.js"></script>
+    <script src="/js/pages/account/edit-password.page.js"></script>
+    <script src="/js/pages/account/edit-profile.page.js"></script>
+    <script src="/js/pages/contact.page.js"></script>
+    <script src="/js/pages/dashboard/welcome.page.js"></script>
+    <script src="/js/pages/entrance/confirmed-email.page.js"></script>
+    <script src="/js/pages/entrance/forgot-password.page.js"></script>
+    <script src="/js/pages/entrance/login.page.js"></script>
+    <script src="/js/pages/entrance/new-password.page.js"></script>
+    <script src="/js/pages/entrance/signup.page.js"></script>
+    <script src="/js/pages/faq.page.js"></script>
+    <script src="/js/pages/homepage.page.js"></script>
+    <script src="/js/pages/legal/privacy.page.js"></script>
+    <script src="/js/pages/legal/terms.page.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
