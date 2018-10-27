@@ -3,7 +3,9 @@ parasails.registerPage('homepage', {
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
-    heroHeightSet: false,
+    heroHeightSet: false
+
+
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -12,6 +14,13 @@ parasails.registerPage('homepage', {
   beforeMount: function() {
     // Attach any initial data from the server.
     _.extend(this, SAILS_LOCALS);
+    
+    window.onload = function() {
+    // HTML5/W3C Geolocation
+      if (navigator.geolocation) {
+        //navigator.geolocation.getCurrentPosition(UserLocation);
+      }
+    }
   },
   mounted: async function(){
     this._setHeroHeight();
