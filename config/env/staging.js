@@ -37,37 +37,26 @@ module.exports = Object.assign({}, PRODUCTION_CONFIG, {
     })
   }),
 
-  sockets: Object.assign({}, PRODUCTION_CONFIG.sockets, {
+  session: {
+    adapter: '@sailshq/connect-redis',
+    url: process.env.SESSION_URL,
+    cookie: {
+      secure: true,
+      maxAge: 24 * 60 * 60 * 1000,  // 24 hours
+    },
+  },
+
+  sockets: {
 
     onlyAllowOrigins: [
       'http://localhost:1337',
-      // 'https://example-staging.herokuapp.com',
-      // 'http://example-staging.herokuapp.com',
-      // 'https://staging.example.com',
-      // 'http://staging.example.com',
+      'https://paymoney-to.herokuapp.com/',
+      'https://paymoney.to'
     ],
-    //--------------------------------------------------------------------------
-    // /\  Hard-code a staging-only override for allowed origins.
-    // ||  (or set this array via JSON-encoded system env var)
-    //     ```
-    //     sails_sockets__onlyAllowOrigins='["http://localhost:1337", "…"]'
-    //     ```
-    //--------------------------------------------------------------------------
 
-    // url: 'redis://shared:some_password_everyone_knows@bigsquid.redistogo.com:9562/',
-    //--------------------------------------------------------------------------
-    // /\  Hard-code your staging Redis server's `url`.
-    // ||  (or use system env var: `sails_sockets__url`)
-    //--------------------------------------------------------------------------
-  }),
-
-  session: Object.assign({}, PRODUCTION_CONFIG.session, {
-    // url: 'redis://shared:some_password_everyone_knows@bigsquid.redistogo.com:9562/staging-sessions',
-    //--------------------------------------------------------------------------
-    // /\  Hard-code your staging Redis server's `url` again here.
-    // ||  (or use system env var: `sails_session__url`)
-    //--------------------------------------------------------------------------
-  }),
+    adapter: '@sailshq/socket.io-redis',
+    url: process.env.SOCKETS_URL
+  },
 
   custom: Object.assign({}, PRODUCTION_CONFIG.custom, {
 
