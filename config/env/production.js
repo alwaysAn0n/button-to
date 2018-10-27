@@ -167,9 +167,9 @@ module.exports = {
   sockets: {
 
     onlyAllowOrigins: [
-      'http://localhost:1337/',
-      'https://paymoney-to.herokuapp.com/',
-      'https://paymoney.to/'
+      'http://localhost:1337',
+      'https://paymoney-to.herokuapp.com',
+      'https://paymoney.to'
     ],
 
     adapter: '@sailshq/socket.io-redis',
