@@ -159,7 +159,7 @@ module.exports = {
     adapter: '@sailshq/connect-redis',
     url: process.env.SESSION_URL,
     cookie: {
-      secure: true,
+      secure: false,
       maxAge: 24 * 60 * 60 * 1000,  // 24 hours
     },
   },
@@ -214,7 +214,7 @@ module.exports = {
     * (https://sailsjs.com/config/http)                                        *
     *                                                                          *
     ***************************************************************************/
-    // trustProxy: true,
+    trustProxy: true,
 
   },
 
