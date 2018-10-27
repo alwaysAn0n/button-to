@@ -4,6 +4,13 @@
       <h1>
         BCASH BCASH BCASH
       </h1>
+
+      <button @click="getNearbyMoneyButtons({lat:543, long:928, username: 'gmax'})">Click me for a good time</button>
+
+      <div v-if="nearbyButtons">
+        <p v-for="user of nearbyButtons">{{ user }}</p>
+      </div>
+
     </center>
   </div>
 </div>

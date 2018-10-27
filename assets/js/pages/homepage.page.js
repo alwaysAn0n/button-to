@@ -3,8 +3,8 @@ parasails.registerPage('homepage', {
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
-    heroHeightSet: false
-
+    heroHeightSet: false,
+    nearbyButtons: []
 
   },
 
@@ -30,7 +30,23 @@ parasails.registerPage('homepage', {
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
+    getNearbyMoneyButtons: async function(userInfo) {
+      console.log('fetching money buttons nearby using this info:',userInfo);
 
+      let serverResponse;
+
+      try {
+        serverResponse = await Cloud.getNearby(userInfo);
+      }
+      catch(nope) {
+        console.log('cannot do it:',nope);
+        return
+      }
+
+      this.nearbyButtons = serverResponse;
+
+      return;
+    },
     clickHeroButton: async function() {
       // Scroll to the 'get started' section:
       $('html, body').animate({
