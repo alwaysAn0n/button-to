@@ -140,22 +140,22 @@ will be disabled and/or hidden in the UI.
               res.locals.me = undefined;
             }//ﬁ
 
-            // Next, if we're running in our actual "production" or "staging" Sails
-            // environment, check if this is a GET request via some other subdomain,
-            // for example something like `webhooks.` or `click.`.  If so, we'll
-            // automatically go ahead and redirect to the corresponding path under
-            // our base URL, which is environment-specific.
-            // > Note that we DO NOT redirect virtual socket requests and we DO NOT
-            // > redirect non-GET requests (because it can confuse some 3rd party
-            // > platforms that send webhook requests.)
-            var configuredBaseSubdomain;
-            try {
-              configuredBaseSubdomain = url.parse(sails.config.custom.baseUrl).host.match(/^([^\.]+)\./)[1];
-            } catch (unusedErr) { /*…*/}
-            if ((sails.config.environment === 'staging' || sails.config.environment === 'production') && !req.isSocket && req.method === 'GET' && req.subdomains[0] !== configuredBaseSubdomain) {
-              sails.log.info('Redirecting GET request from `'+req.subdomains[0]+'.` subdomain...');
-              return res.redirect(sails.config.custom.baseUrl+req.url);
-            }//•
+            // // Next, if we're running in our actual "production" or "staging" Sails
+            // // environment, check if this is a GET request via some other subdomain,
+            // // for example something like `webhooks.` or `click.`.  If so, we'll
+            // // automatically go ahead and redirect to the corresponding path under
+            // // our base URL, which is environment-specific.
+            // // > Note that we DO NOT redirect virtual socket requests and we DO NOT
+            // // > redirect non-GET requests (because it can confuse some 3rd party
+            // // > platforms that send webhook requests.)
+            // var configuredBaseSubdomain;
+            // try {
+            //   configuredBaseSubdomain = url.parse(sails.config.custom.baseUrl).host.match(/^([^\.]+)\./)[1];
+            // } catch (unusedErr) { /*…*/}
+            // if ((sails.config.environment === 'staging' || sails.config.environment === 'production') && !req.isSocket && req.method === 'GET' && req.subdomains[0] !== configuredBaseSubdomain) {
+            //   sails.log.info('Redirecting GET request from `'+req.subdomains[0]+'.` subdomain...');
+            //   return res.redirect(sails.config.custom.baseUrl+req.url);
+            // }//•
 
             // No session? Proceed as usual.
             // (e.g. request for a static asset)
