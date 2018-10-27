@@ -49,9 +49,9 @@ module.exports = Object.assign({}, PRODUCTION_CONFIG, {
   sockets: {
 
     onlyAllowOrigins: [
-      'http://localhost:1337',
+      'http://localhost:1337/',
       'https://paymoney-to.herokuapp.com/',
-      'https://paymoney.to'
+      'https://paymoney.to/'
     ],
 
     adapter: '@sailshq/socket.io-redis',
