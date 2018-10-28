@@ -74,6 +74,7 @@ body {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	border-radius: 40% 25% 0 0;
 }
 
 #section-hero h1 {
