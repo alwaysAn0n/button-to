@@ -146,7 +146,6 @@ parasails.registerComponent('ajaxForm', {
   methods: {
 
     submit: async function () {
-
       // Prevent double-posting.
       if (this.syncing) {
         return;

@@ -244,11 +244,11 @@
       ];
       // FUTURE: change this to a case-insensitive check to do a better job helping
       // out a user who is trying to use e.g. "beforemount", without a capital "M"
-      _.each(_.difference(_.keys(def), LEGAL_TOP_LVL_KEYS), function (propertyName) {
-        if (def[propertyName] !== undefined) {
-          throw new Error('Detected unrecognized key "'+propertyName+'" on the top level of '+currentModuleEntityNoun+' definition.  Did you perhaps intend for `'+propertyName+'` to be included as a nested key within `data` or `methods`?  Please check on that and try again.  If you\'re unsure, or you\'re deliberately attempting to use a Vue.js feature that relies on having a top-level property named `'+propertyName+'`, then please remove this check from the parasails.js library in your project, or drop by https://sailsjs.com/support for assistance.');
-        }
-      });//∞
+      // _.each(_.difference(_.keys(def), LEGAL_TOP_LVL_KEYS), function (propertyName) {
+      //   if (def[propertyName] !== undefined) {
+      //     throw new Error('Detected unrecognized key "'+propertyName+'" on the top level of '+currentModuleEntityNoun+' definition.  Did you perhaps intend for `'+propertyName+'` to be included as a nested key within `data` or `methods`?  Please check on that and try again.  If you\'re unsure, or you\'re deliberately attempting to use a Vue.js feature that relies on having a top-level property named `'+propertyName+'`, then please remove this check from the parasails.js library in your project, or drop by https://sailsjs.com/support for assistance.');
+      //   }
+      // });//∞
     }//ﬁ
 
     // Mix in overridable default filters

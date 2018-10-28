@@ -9,28 +9,33 @@
       <div class="avatar-container">
 
         <div class="avatar-box">
-          I'm a placeholder image.
+          <img :src="myAvatar">
         </div>
 
       </div>
 
-      <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm">
+      <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingForm" ref="signupForm">
         <div class="form-group">
+          <input type="text" id="avatarString" :value="myAvatar" style="display:none">
           <label for="full-name">Username</label>
-          <input class="form-control" id="full-name" type="text"  :class="[formErrors.username ? 'is-invalid' : '']" v-model.trim="formData.username" placeholder="Sturgis P. Sturgeon" autocomplete="name" focus-first>
+          <input class="form-control" id="username" type="text" :class="[formErrors.username ? 'is-invalid' : '']" v-model.trim="formData.username" placeholder="Sturgis P. Sturgeon" autocomplete="name" focus-first>
           <div class="invalid-feedback" v-if="formErrors.username">What should we call you?</div>
         </div>
         <p class="text-danger" v-if="cloudError"><small>Uh oh: {{ cloudError }} </small></p>
         <p class="text-danger" v-else-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/support">contact support</a> if the error persists.</small></p>
-        <div class="form-group">
-          <ajax-button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Replace me with our login money button</ajax-button>
+        <div class="form-group" v-show="formData.username">
+          <pay-money-button
+            @success="submitForm"
+            amount="0.05"
+            pay-money-button-id="986">
+          </pay-money-button>
         </div>
       </ajax-form>
       <p class="text-center">Have an account? <a href="/login">Sign in</a></p>
     </div>
   </div>
   <div class="container" v-if="cloudSuccess">
-    <h1 class="text-center">Check your email!</h1>
+    <h1 class="text-center">Well done!!</h1>
     <div class="success-message">
       <hr/>
       <p>Your account is nearly ready. All you have to do is click the link we sent to <strong>{{formData.emailAddress}}</strong>.</p>
