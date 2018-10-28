@@ -21,7 +21,7 @@ parasails.registerPage('user-button-page', {
     console.log('using:',this.useAmount, this.amount, typeof this.amount);
   },
   mounted: async function() {
-
+window.crap = this;
     window.addEventListener('load', function(){
       var amountDiv = document.getElementById('amount')
       // Set focus on the amount so th user can immediately type and see the stepper controls from the number input
