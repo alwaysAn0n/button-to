@@ -1,0 +1,17 @@
+<div id="nearby" :class="[heroHeightSet ? '' : 'uninitialized']" v-cloak>
+  <div class="hero d-flex flex-column justify-content-center" full-page-hero>
+    <center>
+      <h1>
+        Share your location 
+      </h1>
+
+      <button @click="getNearbyMoneyButtons({lat:543, long:928, username: 'gmax'})">Click me for a good time</button>
+
+      <div v-if="nearbyButtons">
+        <p v-for="user of nearbyButtons">{{ user }}</p>
+      </div>
+
+    </center>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

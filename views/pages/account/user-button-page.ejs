@@ -10,7 +10,7 @@
       </div>
     </div>
     <div id="amount-container">
-      <input type="number" :value="useAmount" id="amount">
+      <input type="number" :value="useAmount" id="amount" v-model="useAmount" step="0.01">
     </div>
 
     <pay-money-button
