@@ -26,7 +26,10 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     if (this.req.me) {
-      throw {redirect:'/welcome'};
+      return this.res.redirect('/'+this.req.me&&this.req.me.username);
+    }
+    else {
+      return this.res.redirect('/signup');
     }
 
     return exits.success();

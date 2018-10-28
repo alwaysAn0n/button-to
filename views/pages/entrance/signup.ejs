@@ -1,8 +1,8 @@
 <div id="signup" v-cloak>
   <div class="container" v-if="!cloudSuccess">
-    <h1 class="text-center">Create an account</h1>
+    <h1 class="text-center">paycash.to</h1>
     <div class="signup-form">
-      <p class="text-center">Let's get started! Becoming a member is free and only takes a few minutes.</p>
+      <!-- <p class="text-center">Let's get started! Becoming a member is free and only takes a few minutes.</p> -->
       <hr/>
 
       <!-- User avatar image upload box -->
@@ -17,8 +17,8 @@
       <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingForm" ref="signupForm">
         <div class="form-group">
           <input type="text" id="avatarString" :value="myAvatar" style="display:none">
-          <label for="full-name">Username</label>
-          <input class="form-control" id="username" type="text" :class="[formErrors.username ? 'is-invalid' : '']" v-model.trim="formData.username" placeholder="Sturgis P. Sturgeon" autocomplete="name" focus-first>
+          <!-- <label for="full-name">Username</label> -->
+          <input class="form-control" id="username" type="text" :class="[formErrors.username ? 'is-invalid' : '']" v-model.trim="formData.username" placeholder="G. Maxwell" autocomplete="name" focus-first>
           <div class="invalid-feedback" v-if="formErrors.username">What should we call you?</div>
         </div>
         <p class="text-danger" v-if="cloudError"><small>Uh oh: {{ cloudError }} </small></p>
@@ -27,12 +27,12 @@
           <pay-money-button
             @success="submitForm"
             amount="0.05"
-            label="Register with a tip!"
+            label="Register!"
             pay-money-button-id="986">
           </pay-money-button>
         </div>
       </ajax-form>
-      <p class="text-center">Have an account? <a href="/login">Sign in</a></p>
+      <!-- <p class="text-center">Have an account? <a href="/login">Sign in</a></p> -->
     </div>
   </div>
   <div class="container" v-if="cloudSuccess">
