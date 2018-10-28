@@ -1,0 +1,26 @@
+<div id="user-button-page" v-cloak>
+  <div class="container">
+    Welcome {{ username }}
+    <div id="avatar" class="coin">
+      <div class="sideA">
+        <img :src="avatarString" />
+      </div>
+      <div class="sideB">
+        $ {{ useAmount }} (side b)
+      </div>
+    </div>
+    <div id="amount-container">
+      <input type="number" :value="useAmount" id="amount">
+    </div>
+
+    <pay-money-button
+      @success="runAnimation"
+      :amount="useAmount"
+      label="Tip"
+      pay-money-button-id="986">
+    </pay-money-button>
+
+    <!-- <img src="img/moneyButton.png" id="moneyButton" /> -->
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

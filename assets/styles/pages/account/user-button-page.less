@@ -1,0 +1,116 @@
+#user-button-page {
+  padding-top: 75px;
+  padding-bottom: 75px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+
+  .container {
+
+    #avatar {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 33.3%;
+      left: 50%;
+
+      height: 33.3vh;
+      width: 33.3vh;
+
+      line-height: 33.3vh;
+      font-size: 8vh;
+
+      .sideA {
+        background-image: url(img/avatar.jpg);
+        z-index: 100;
+      };
+
+      .sideB {
+        background-color: #4772f5;
+        color: white;
+        font-size: 20vh;
+        -webkit-transform: rotateY(-180deg);
+      };
+
+    };
+
+    #amount-container {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      bottom: 25%;
+      left: 50%;
+
+      #amount {
+        height: 52px;
+        width: 122px;
+
+        font-size: 26px;
+        padding-left: 17px;
+
+      };
+
+      #moneyButton {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        bottom: 10%;
+        left: 50%;
+
+        height: 52px;
+        width: 122px;
+
+        border-radius: 2.5vh;
+
+        border-radius: 26px;
+
+      };
+
+    };
+
+    #amount-container:after {
+      content: "$";
+      display: table;
+      position: absolute;
+      left: 4px;
+      top: 50%;
+      transform: translate(0, -50%);
+      font-size: 26px;
+      color: darkgrey;
+    };
+
+
+    .coin {
+      transition: transform 0.2s;
+
+      transform-style: preserve-3d;
+    }
+
+    .coin div {
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+
+      border-radius: 50%;
+
+      text-transform: uppercase;
+      text-align: center;
+
+      -webkit-backface-visibility: hidden;
+
+      background-size: contain;
+    }
+
+    .coin.isTails {
+      transform: rotateY(180deg) !important;
+    }
+
+    .coin.tipped {
+      animation: flip 3s ease-in-out forwards;
+    }
+
+  };
+
+  @keyframes flip {
+    0% { transform: translate(-50%, -50%)  scale(1.0) rotateY(0); }
+    50% { transform: translate(-50%, -50%) scale(1.4) rotateY(-540deg); }
+    100% { transform: translate(-50%, -50%)   scale(1.0) rotateY(-720deg); }
+  }
+
+};

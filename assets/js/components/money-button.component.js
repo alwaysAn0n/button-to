@@ -21,7 +21,7 @@ parasails.registerComponent('pay-money-button', {
   //  ╠═╝╠╦╝║ ║╠═╝╚═╗
   //  ╩  ╩╚═╚═╝╩  ╚═╝
   props: [
-    'payMoneyButtonId', 'amount', 'onPayment', 'onError'
+    'payMoneyButtonId', 'amount', 'onPayment', 'onError', 'label'
   ],
 
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
@@ -49,7 +49,7 @@ parasails.registerComponent('pay-money-button', {
       :data-to="payMoneyButtonId"
       :data-amount="useAmount"
       data-currency="USD"
-      data-label="Tips!"
+      :data-label="label ? label : 'Tip!'"
       data-type="buy"
       data-on-payment="datSweetSweetPayment"
       data-on-error="sorryButYouDidntSayBCASH"

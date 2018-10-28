@@ -14,6 +14,7 @@ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
+
   'GET /':                   { action: 'view-homepage-or-redirect' },
   'GET /welcome':            { action: 'dashboard/view-welcome' },
 
@@ -33,7 +34,6 @@ module.exports.routes = {
   'GET /account':            { action: 'account/view-account-overview' },
   'GET /account/password':   { action: 'account/view-edit-password' },
   'GET /account/profile':    { action: 'account/view-edit-profile' },
-
 
 
   'POST /nearby':   { action: 'account/get-location', skipAssets: true},
@@ -64,5 +64,66 @@ module.exports.routes = {
   //  ╩ ╩╩╚═╝╚═╝  ╩╚═╚═╝═╩╝╩╩╚═╚═╝╚═╝ ╩ ╚═╝
   '/terms':                   '/legal/terms',
   '/logout':                  '/api/v1/account/logout',
+
+
+
+  'GET /:username/:tipAmount': async function(req, res, next) {
+    let allParams = req.allParams();
+
+    let userAccount;
+    try {
+      userAccount = await User.findOne({
+        username: allParams.username
+      });
+    }
+    catch(nope) {
+      console.log('ruh roh:', nope);
+      return next();
+    }
+
+    let safeTipAmount;
+    try {
+      safeTipAmount = Number(allParams.tipAmount);
+    }
+    catch(nope) {
+      console.log('nope:', nope);
+      safeTipAmount = 100;
+    }
+
+    if (userAccount) {
+      if (allParams.tipAmount) {
+        _.extend(userAccount, { amount: safeTipAmount });
+      }
+      return res.view('pages/account/user-button-page', userAccount);
+    }
+    else {
+      return next();
+    }
+
+  },
+
+
+  'GET /:username': async function(req, res, next) {
+    let allParams = req.allParams();
+
+    let userAccount;
+    try {
+      userAccount = await User.findOne({
+        username: allParams.username
+      });
+    }
+    catch(nope) {
+      console.log('ruh roh:', nope);
+      return next();
+    }
+
+    if (userAccount) {
+      return res.redirect('/'+userAccount.username+'/5');
+    }
+    else {
+      return next();
+    }
+  },
+
 
 };

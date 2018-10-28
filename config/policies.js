@@ -14,6 +14,8 @@ module.exports.policies = {
 
   'account/get-location': true,
 
+  'account/user-button-page': true,
+
   // Bypass the `is-logged-in` policy for:
   'entrance/*': true,
   'account/logout': true,
